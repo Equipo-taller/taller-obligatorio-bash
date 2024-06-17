@@ -77,7 +77,7 @@ menu() {
         algoritmo1
         ;;
       10)
-        # TODO - algoritmo2
+        algoritmo2
         ;;
       11)
         echo "Saliendo del programa..."
@@ -170,6 +170,24 @@ algoritmo1() {
   echo "Promedio: $promedio"
   echo "Menor: $menor"
   echo "Mayor: $mayor"
+}
+
+algoritmo2() {
+  echo "Ingrese una palabra:"
+  read palabra
+
+  # Convierte la palabra a minúsculas
+  palabra=`echo $palabra | tr '[:upper:]' '[:lower:]'`
+
+  # Invierte la palabra
+  palabra_invertida=`echo $palabra | rev`
+
+  # Compara si la palabra es igual a la palabra invertida
+  if [ "$palabra" == "$palabra_invertida" ]; then
+    echo "La palabra es capicúa"
+  else
+    echo "La palabra no es capicúa"
+  fi
 }
 
 configurarLetraInicio() {
