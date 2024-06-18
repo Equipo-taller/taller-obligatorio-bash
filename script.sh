@@ -196,7 +196,7 @@ logueo() {
   fi
 
   # Verifica si el usuario y contraseña son correctos
-  result="`grep "$user:$password" users.txt`"
+  # result="`grep "$user:$password" users.txt`"
   
   if [ "$result" == "" ];then
     # En caso de no existir lo crea
