@@ -74,7 +74,7 @@ menu() {
         # TODO - listarPalabrasConVocal
         ;;
       9)
-        # TODO - algoritmo1
+        algoritmo1
         ;;
       10)
         # TODO - algoritmo2
@@ -155,6 +155,46 @@ listarUsuarios() {
   echo "Usuarios:"
   # cut -d: -f1 corta el archivo por el delimitador ":" y muestra la primera columna (f1)
   cat users.txt | cut -d: -f1
+}
+
+algoritmo1() {
+  echo "Ingrese la cantidad de datos:"
+  read cantidad
+  
+  suma=0
+  menor=0
+  mayor=0
+  
+  # Itera la cantidad de veces ingresada
+  for ((i=0; i<$cantidad; i++)); do
+    echo "Ingrese dato $i:"
+    read dato
+    
+    suma=$((suma + dato))
+    
+    # -eq significa igual (equal)
+    if [ $i -eq 0 ]; then
+      menor=$dato
+      mayor=$dato
+    fi
+
+    # -lt significa menor que (less than)
+    if [ $dato -lt $menor ]; then
+      menor=$dato
+    fi
+    
+    # -gt significa mayor que (greater than)
+    if [ $dato -gt $mayor ]; then
+      mayor=$dato
+    fi
+  done
+
+  # bc es una calculadora de precisión arbitraria - scale=3 significa que redondea a 3 decimales
+  promedio=`echo "scale=3; $suma / $cantidad" | bc`
+  
+  echo "Promedio: $promedio"
+  echo "Menor: $menor"
+  echo "Mayor: $mayor"
 }
 
 crearUsuario() {
