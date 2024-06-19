@@ -1,6 +1,7 @@
 # Autores: Facundo San Andreas, Ignacio Dalla Rizza, Stefano Terzaghi
 
 # Crea un archivo con usuarios y contraseñas
+# Nuevo comentario
 cat > users.txt << EOF
 admin:admin
 user:1234
